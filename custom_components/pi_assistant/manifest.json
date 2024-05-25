@@ -1,0 +1,14 @@
+{
+  "domain": "pi_assistant",
+  "name": "Raspberry Pi Assistant",
+  "codeowners": ["@mkenfenheuer"],
+  "config_flow": true,
+  "dependencies": [],
+  "integration_type": "device",
+  "documentation": "https://github.com/mKenfenheuer/pi_assistant_hacs/",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/mKenfenheuer/pi_assistant_hacs/issues",
+  "requirements": ["requests>=2.25.1"],
+  "version": "0.2.1",
+  "zeroconf": ["_piassistant._tcp.local."]
+}

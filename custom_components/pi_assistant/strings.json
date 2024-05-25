@@ -1,0 +1,24 @@
+{
+  "config": {
+      "error": {},
+      "abort": {
+        "reconfigure_successful": "Re-configuration was successful"
+      },
+      "step": {
+          "user": {
+              "data": {
+                  "hostname": "Enter hostname of the device"
+              },
+              "description": "Provide configuration data. See documentation for further info.",
+              "title": "Add Raspberry Pi Assistant services"
+          },
+          "reconfigure": {
+              "data": {
+                  "hostname": "Enter hostname of the device"
+              },
+              "description": "Provide configuration data. See documentation for further info.",
+              "title": "Add Raspberry Pi Assistant services"
+          }
+      }
+  }
+}
