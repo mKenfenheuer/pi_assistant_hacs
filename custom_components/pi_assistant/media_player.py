@@ -32,15 +32,16 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:  # pylint disable=unused-argument
     """Set up PiAssistantMediaPlayer via config entry."""
-    entity = PiAssistantMediaPlayer(config_entry.data.get(HOSTNAME))
+    entity = PiAssistantMediaPlayer(hass, config_entry.data.get(HOSTNAME))
     async_add_entities([entity])
 
 
 class PiAssistantMediaPlayer(MediaPlayerEntity):
     """A media player implementation."""
 
-    def __init__(self, hostname) -> None:
+    def __init__(self, hass, hostname) -> None:
         """Initialize."""
+        self.hass: HomeAssistant = hass
         self.hostname = hostname
         self._attr_supported_features = (
             MediaPlayerEntityFeature.PLAY_MEDIA
@@ -96,7 +97,7 @@ class PiAssistantMediaPlayer(MediaPlayerEntity):
             self._attr_media_duration = state["media_duration"]
             self._attr_media_content_type = state["media_content_type"]
             self._attr_media_position = state["media_position"]
-            self._attr_media_position_updated_at = state["media_position_updated_at"]
+            self._attr_media_position_updated_at = self.hass.util.dt.utcnow()
             self._attr_repeat = state["repeat"]
             self._attr_shuffle = state["shuffle"]
             self._attr_source = state["source"]
